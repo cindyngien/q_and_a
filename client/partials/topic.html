@@ -1,0 +1,19 @@
+<div ng-controller='topicController'>
+    <button class='logout' ng-click='logout()'>Logout</button>
+    <h1> New Question</h1>
+
+    <br><br>
+    <div ng-messages='questionNew.question.$error'>
+        <h6 ng-message='minlength'>***The question must be at least 10 characters! Please retry.***</h>
+    </div>
+    <form name='questionNew'>
+        <p> Question: <input type='text' name='question' ng-model='newTopic.topic' ng-minlength='10' required></p>
+        <p>Description (optional) </p><textarea ng-model='newTopic.description' cols='30' rows='10'></textarea><br>
+        <button onclick='goBack()'>Cancel</button>
+        <input type='submit' ng-click='createTopic(newTopic)'>
+
+    </form>
+
+
+
+</div>

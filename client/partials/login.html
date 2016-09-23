@@ -1,0 +1,15 @@
+<div ng-controller='userController'>
+    <br>
+    <h1> Welcome to Coding Dojo's Q&A </h1>
+
+    <br>
+    <div ng-messages='loginName.login.$error'>
+        <h6 ng-message='minlength'>Name cannot be shorter than 3 characters!</h6>
+    </div>
+    <form>
+        <div>
+            Name: <input name='login' type='text' ng-model='loginAttempt' ng-minlength='3' required>
+            <button ng-click='checkUser(loginAttempt)'>Login</button>
+        </div>
+    </form>
+</div>

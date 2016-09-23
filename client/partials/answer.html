@@ -1,0 +1,23 @@
+<div ng-controller='answerController'>
+    <button class='logout' ng-click='logout()'>Logout</button>
+        <button><a href='#/dashboard'>Home</a></button> <button><a href='#/showTopic/{{oneTopic._id}}'> Go Back to Question</a></button>
+        <br>
+
+        <h4>Question:</h4><h5>{{oneTopic.title}}</h5>
+        <h5>Description:</h5><p>{{oneTopic.description}}</p> <br>
+
+        <div ng-messages='answerNew.answer.$error'>
+            <h6 ng-message='minlength'>The answer must be at least 5 characters!!</h>
+        </div>
+
+        <form>
+            <h5>Your answer:</h5>
+            <textarea name='answer' ng-model='newAnswer.answer' ng-minlength='5' required></textarea>
+            <h5> Supporting details for your answer (optional)</h5>
+                <textarea ng-model='newAnswer.supporting'></textarea>
+                <div>
+                    <button onclick='goBack()'>Cancel</button>
+                    <input type='submit' value='Submit' ng-click='submitAnswer(oneTopic._id, newAnswer)'>
+                </div>
+        </form>
+</div>

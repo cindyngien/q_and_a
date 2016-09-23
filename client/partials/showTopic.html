@@ -1,0 +1,16 @@
+<div ng-controller='showTopicController'>
+
+    <button class='logout' ng-click='logout()'>Logout</button>
+        <button><a href='#/dashboard'>Home</a></button> <button><a href='#/answer/{{oneTopic._id}}'> Answer this Question</a></button>
+
+        <h4>Question:</h4><h5>{{oneTopic.title}}</h5>
+        <h4>Description:</h4><h5>{{oneTopic.description}}</h5>
+        <hr>
+        <div ng-repeat="answer in oneTopic._answers | orderBy:'-likes'">
+            <h4 class='name'>{{answer._user.name}} said:</h4>
+            <p>{{answer.message}}</p>
+            <p>{{answer.supporting}}</p>
+            <div>{{answer.likes}} likes! <button ng-click='like(answer._id)'> Like!</button></div>
+            <hr>
+        </div>
+</div>
